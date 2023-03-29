@@ -1,4 +1,5 @@
 # 中式自助餐計價與熱量估算系統
+![volume_experiment_application2](https://user-images.githubusercontent.com/22574508/228484288-eab6b0c4-0399-4efc-aebc-8b0c1687deaf.PNG)
 
 ## 實驗環境
 - 架設一個燈管於頂端，用於確保光線一致性

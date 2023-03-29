@@ -1,4 +1,4 @@
-# 中式自助餐計價與熱量估算系統
+# 結合 CNN 及深度影像於食物辨識及體積估算之中式自助餐計價系統
 ![volume_experiment_application2](https://user-images.githubusercontent.com/22574508/228484288-eab6b0c4-0399-4efc-aebc-8b0c1687deaf.PNG)
 
 ## 實驗環境

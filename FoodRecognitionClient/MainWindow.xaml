@@ -1,0 +1,104 @@
+﻿<Window x:Class="FoodRecognitionClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FoodRecognitionClient"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1080" Width="1920" Loaded="Window_Loaded" Closed="Window_Closed">
+    <Grid>
+        <!--Definition-->
+        <Grid.RowDefinitions >
+            <RowDefinition Height="720" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="960" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <!--Panel-->
+        <Border Grid.Row="0" Grid.Column="0" Background="LightSkyBlue"  Grid.ColumnSpan="2">
+            <Grid>
+                <Image Name="camera" Width="1280" Height="720" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+                <Image Visibility="Collapsed" Name="background_subtraction_show" Width="256" Height="160" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                <Canvas Name="canvas" Width="1280" Height="720" />
+                <TextBlock Name="auto_detect_warning_txt" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,0,0,20" Foreground="Red" FontSize="96" FontWeight="Bold" Opacity="0.6" Visibility="Collapsed" />
+                <TextBlock Name="capture_label" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,20" Height="50" Text="辨識中..." FontSize="24" FontWeight="Bold" Opacity="0.5" Background="White" Visibility="Collapsed"/>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="0" Background="LightSteelBlue" >
+            <StackPanel VerticalAlignment="Top">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="20, 20,10,0">
+                    <TextBlock Height="50" Foreground="Red" Text="區域1：" FontSize="24" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" />
+                    <TextBlock Name="region1_cate_txt" Height="50"  FontSize="24" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" />
+                    <TextBlock Name="region1_price_txt" Height="50"  FontSize="24" FontWeight="Bold"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" />
+                    <TextBlock Visibility="Collapsed" Name="region1_calories_txt" Height="50"  FontSize="24" FontWeight="Bold"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" />
+                    <TextBlock Name="region1_sum_txt" Height="50"  FontSize="24" FontWeight="Bold"   VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,30,0" />
+                    <TextBlock Name="region1_price_per_portion_txt" Height="50"  FontSize="20" FontWeight="Bold" Background ="SkyBlue"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" />
+                    <TextBlock Name="region1_volume_per_portion_txt" Height="50"  FontSize="20" FontWeight="Bold" Background ="SkyBlue"   VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="20, 10,10,0">
+                    <TextBlock Height="50" Foreground="Green" Text="區域2：" FontSize="24" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" />
+                    <TextBlock Name="region2_cate_txt" Height="50"  FontSize="24" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" />
+                    <TextBlock Name="region2_price_txt" Height="50"  FontSize="24" FontWeight="Bold"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" />
+                    <TextBlock Visibility="Collapsed" Name="region2_calories_txt" Height="50"  FontSize="24" FontWeight="Bold"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" />
+                    <TextBlock Name="region2_sum_txt" Height="50"  FontSize="24" FontWeight="Bold"   VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,30,0" />
+                    <TextBlock Name="region2_price_per_portion_txt" Height="50"  FontSize="20" FontWeight="Bold" Background ="SkyBlue"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" />
+                    <TextBlock Name="region2_volume_per_portion_txt" Height="50"  FontSize="20" FontWeight="Bold" Background ="SkyBlue"   VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="20, 10,10,0">
+                    <TextBlock Height="50" Foreground="Blue" Text="區域3：" FontSize="24" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" />
+                    <TextBlock Name="region3_cate_txt" Height="50"  FontSize="24" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" />
+                    <TextBlock Name="region3_price_txt" Height="50"  FontSize="24" FontWeight="Bold"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" />
+                    <TextBlock Visibility="Collapsed" Name="region3_calories_txt" Height="50"  FontSize="24" FontWeight="Bold"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" />
+                    <TextBlock Name="region3_sum_txt" Height="50"  FontSize="24" FontWeight="Bold"   VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,30,0" />
+                    <TextBlock Name="region3_price_per_portion_txt" Height="50"  FontSize="20" FontWeight="Bold" Background ="SkyBlue"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" />
+                    <TextBlock Name="region3_volume_per_portion_txt" Height="50"  FontSize="20" FontWeight="Bold" Background ="SkyBlue"   VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="20, 10,10,0">
+                    <TextBlock Height="50"  Foreground="Yellow" Text="區域4：" FontSize="24" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" />
+                    <TextBlock Name="region4_cate_txt" Height="50"  FontSize="24" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" />
+                    <TextBlock Name="region4_price_txt" Height="50"  FontSize="24" FontWeight="Bold"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" />
+                    <TextBlock Visibility="Collapsed" Name="region4_calories_txt" Height="50"  FontSize="24" FontWeight="Bold"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" />
+                    <TextBlock Name="region4_sum_txt" Height="50"  FontSize="24" FontWeight="Bold"   VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,30,0" />
+                    <TextBlock Name="region4_price_per_portion_txt" Height="50"  FontSize="20" FontWeight="Bold" Background ="SkyBlue"  VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,0" />
+                    <TextBlock Name="region4_volume_per_portion_txt" Height="50"  FontSize="20" FontWeight="Bold" Background ="SkyBlue"   VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0" />
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="1" Background="LightSteelBlue" >
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Margin="20" VerticalAlignment="Top">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="20">
+                        <TextBlock Height="50" Text="總價格($NTD)：" FontSize="48" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" />
+                        <TextBlock Name="price_sum_txt" Height="50"  FontSize="48" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" />
+                    </StackPanel>
+                    <StackPanel Visibility="Collapsed" Orientation="Vertical" HorizontalAlignment="Center" Margin="20">
+                        <TextBlock Height="50" Text="總熱量(kcal)：" FontSize="48" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" />
+                        <TextBlock Name="calories_sum_txt" Height="50"  FontSize="48" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,10,0" />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="20" HorizontalAlignment="Right">
+                    <Button Name="calibrate_btn" Content="校正空盤深度" Click="Calibrate_Click" Width="250" Margin="10" FontSize="36" FontWeight="Bold" Height="100" />
+                    <Button Name="recognize_btn" Background="PaleVioletRed" Foreground="White" Content="開始辨識" Click="Capture_Click" Width="250" Margin="10" FontSize="36" FontWeight="Bold" Height="100" />
+                    
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0,20,0,0" HorizontalAlignment="Right">
+                    <CheckBox Name="auto_detect_chkBox" Content="自動偵測辨識" Margin="0,10,0,0" FontSize="12" FontWeight="Bold" Checked="auto_detect_chkBox_Checked" Unchecked="auto_detect_chkBox_Unchecked">
+                        <CheckBox.LayoutTransform>
+                            <ScaleTransform ScaleX="2" ScaleY="2" />
+                        </CheckBox.LayoutTransform>
+                    </CheckBox>
+                    <TextBlock  Name="detecting_txt" Margin="10" Foreground="Red" FontSize="46" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+
+        <!--Splitter-->
+        <GridSplitter Grid.Row="0" Grid.Column="0" Background="Transparent" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"  Height="5" />
+        <GridSplitter Grid.Row="1" Grid.Column="0" Background="Transparent" HorizontalAlignment="Right"   VerticalAlignment="Stretch" Width="5"  />
+    </Grid>
+</Window>

@@ -1,5 +1,8 @@
-# 結合 CNN 及深度影像於食物辨識及體積估算之中式自助餐計價系統 (碩士論文)
-![volume_experiment_application2](https://user-images.githubusercontent.com/22574508/228484288-eab6b0c4-0399-4efc-aebc-8b0c1687deaf.PNG)
+# 結合 CNN 及深度影像於食物辨識及體積估算之中式自助餐計價系統
+<img src="https://user-images.githubusercontent.com/22574508/228484288-eab6b0c4-0399-4efc-aebc-8b0c1687deaf.PNG" width="80%" height="80%"/>
+
+## Introduction
+![introduction](https://user-images.githubusercontent.com/22574508/228721720-47034007-5873-4981-9c52-00543f63c3bc.jpg)
 
 ## 實驗環境
 - 架設一個燈管於頂端，用於確保光線一致性

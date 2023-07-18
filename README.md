@@ -20,7 +20,7 @@
 - 拍攝時皆經過攪動或翻面和不同食物量，確保資料的多樣性
 - 使用Kinect v2鏡頭
 
-![dataset_intro](https://user-images.githubusercontent.com/22574508/228472344-287f7e73-39e4-4c1e-a9f1-486becf676c7.PNG)
+<img src="https://user-images.githubusercontent.com/22574508/228472344-287f7e73-39e4-4c1e-a9f1-486becf676c7.PNG" width="50%" height="50%"/>
 
 ## 系統架構
 - Server使用Flask框架開發
